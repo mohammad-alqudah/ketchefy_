@@ -1,0 +1,403 @@
+{% extends 'fulfillment_dashboard/base.html' %}
+{% load static %}
+{% block content %}
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Orders</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
+                                        <li class="breadcrumb-item active">Orders</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card" id="orderList">
+                                <div class="card-header  border-0">
+                                    <div class="d-flex align-items-center">
+                                        <h5 class="card-title mb-0 flex-grow-1">Order History</h5>
+                                        <div class="flex-shrink-0">
+                                            <button type="button" class="btn btn-soft-success"><i
+                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body border border-dashed border-end-0 border-start-0">
+                                    <form>
+                                        <div class="row g-3">
+                                            
+                                            <div class="col-xxl-5 col-sm-8">
+                                                <div class="search-box">
+                                                    <input type="text" class="form-control search"
+                                                        placeholder="Search">
+                                                    <i class="ri-search-line search-icon"></i>
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+
+                                            <div class="col-xxl-3 col-sm-4">
+                                                <div>
+                                                    <input type="text" class="form-control" data-provider="flatpickr"
+                                                        data-date-format="d M, Y" data-range-date="true"
+                                                        id="demo-datepicker" placeholder="Select date">
+                                                </div>
+                                            </div>
+
+                                 
+
+                                            <div class="col-xxl-2 col-sm-3">
+                                                <button type="button" class="btn btn-light dropdown-toggle w-100"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    Channel
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-md p-4">
+                                                        <!-- loop here -->
+                                                        <div class="mb-2">
+                                                            <div class="form-check custom-checkbox">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    id="resturant_1">
+                                                                <label class="form-check-label" for="resturant_1">
+                                                                    Caream </label>
+                                                            </div>
+                                                            <div class="form-check custom-checkbox">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    id="resturant_1">
+                                                                <label class="form-check-label" for="resturant_1">
+                                                                    Talabat </label>
+                                                            </div>
+                                                            <div class="form-check custom-checkbox">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    id="resturant_1">
+                                                                <label class="form-check-label" for="resturant_1">
+                                                                    CSMena </label>
+                                                            </div>
+                                                            <div class="form-check custom-checkbox">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    id="resturant_1">
+                                                                <label class="form-check-label" for="resturant_1">
+                                                                    Ask Paper </label>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xxl-2 col-sm-3">
+                                                <button type="button" class="btn btn-light dropdown-toggle w-100"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    Resturants
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-md p-4">
+                                                        <!-- loop here -->
+                                                        <div class="mb-2">
+                                                            <div class="form-check custom-checkbox">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    id="resturant_1">
+                                                                <label class="form-check-label" for="resturant_1">
+                                                                    Sednaya </label>
+                                                            </div>
+                                                            <div class="form-check custom-checkbox">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    id="resturant_1">
+                                                                <label class="form-check-label" for="resturant_1">
+                                                                    AL Hanayen </label>
+                                                            </div>
+                                                            <div class="form-check custom-checkbox">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    id="resturant_1">
+                                                                <label class="form-check-label" for="resturant_1">
+                                                                    Golden Meal </label>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                </div>
+                                            </div>
+
+                                     
+                                        </div>
+                                        <!--end row-->
+                                    </form>
+                                </div>
+                                <div class="card-body pt-3">
+                                    <div>
+                                        
+
+                                        <div class="table-responsive table-card mb-1">
+                                            <table class="table table-nowrap align-middle" id="orderTable">
+                                                <thead class="text-muted table-light">
+                                                    <tr class="text-uppercase">
+
+                                                        <th data-sort="channel">item name</th>
+                                                        <th data-sort="brand_name">brand</th>
+                                                        <th data-sort="FPN">current stock</th>
+                                                        <th data-sort="order_ID">sales forecast</th>
+                                                        <th data-sort="order_status">date last order</th>
+                                                        <th data-sort="date_time">shelf life</th>
+                                                        <th data-sort="order_type">date to order next</th>
+                                                        <th data-sort="total">status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="list form-check-all">
+                                                    <tr>
+
+                                                        <td class="channel"><a href="apps-ecommerce-order-details.html"
+                                                                class="fw-medium link-primary">Carem</a></td>
+                                                        <td class="brand_name">Frank Hook</td>
+                                                        <td class="FPN">Puma Tshirt</td>
+                                                        <td class="order_ID">1232313</td>
+                                                        <td class="order_status">
+                                                            <span class="badge badge-soft-warning text-uppercase">Delivered</span></td>
+                                                        <td class="date_time">20 Dec, 2021, </td>
+                                                        <td class="order_type">Delivery </td>
+                                                        <td class="total">500$</td>
+                                                     
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td class="channel"><a href="apps-ecommerce-order-details.html"
+                                                                class="fw-medium link-primary">Carem</a></td>
+                                                        <td class="brand_name">Frank Hook</td>
+                                                        <td class="FPN">Puma Tshirt</td>
+                                                        <td class="order_ID">234434</td>
+                                                        <td class="order_status">
+                                                            <span class="badge badge-soft-warning text-uppercase">Delivered</span></td>
+                                                        <td class="date_time">20 Dec, 2021, </td>
+                                                        <td class="order_type">Delivery </td>
+                                                        <td class="total">500$</td>
+                                                     
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="noresult" style="display: none">
+                                                <div class="text-center">
+                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json"
+                                                        trigger="loop" colors="primary:#25a0e2,secondary:#0ab39c"
+                                                        style="width:75px;height:75px">
+                                                    </lord-icon>
+                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
+                                                    <p class="text-muted">We've searched more than 150+ Orders We did
+                                                        not find any
+                                                        orders for you search.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <div class="pagination-wrap hstack gap-2">
+                                                <a class="page-item pagination-prev disabled" href="#">
+                                                    Previous
+                                                </a>
+                                                <ul class="pagination listjs-pagination mb-0"></ul>
+                                                <a class="page-item pagination-next" href="#">
+                                                    Next
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal fade" id="showModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-light p-3">
+                                                    <h5 class="modal-title" id="exampleModalLabel">&nbsp;</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close" id="close-modal"></button>
+                                                </div>
+                                                    <div class="modal-body">
+                                                        <input type="hidden" id="id-field" />
+
+                                                        <div class="mb-3 d-flex justify-content-between align-items-center mx-2" id="modal-id">
+                                                            <p class="text-reset fs-14">Talabat</p>
+                                                            <p class="text-reset fs-14">Complete</p>
+                                                        </div>
+
+                                                        <div class="mb-3 d-flex justify-content-between align-items-center mx-2" id="modal-id">
+                                                            <p class="text-reset fs-14">#7883456</p>
+                                                            <p class="text-reset fs-14">2 jun, 2022</p>
+                                                        </div>
+
+                                                        <div class="mb-3 d-flex justify-content-between align-items-center mx-2" id="modal-id">
+                                                            <p class="text-reset fs-14">Heroes Khaled</p>
+                                                            <p class="text-reset fs-14">2 PM</p>
+                                                        </div>
+
+                                                        <div class="mb-3 d-flex justify-content-between align-items-center mx-2" id="modal-id">
+                                                            <p class="text-reset fs-14">Abdlhadi</p>
+                                                            <p class="text-reset fs-14">Steakway</p>
+                                                        </div>
+
+                                                        <div class="mb-3 d-flex justify-content-between align-items-center mx-2" id="modal-id">
+                                                            <p class="text-reset fs-14">07883456</p>
+                                                            <p class="text-reset fs-14">Mecca St.</p>
+                                                        </div>
+
+
+                                                        <div class="col-12 gy-4 mb-3">
+                                                            <div class="col-md-6 m-0">
+                                                                <p class="text-reset m-0 fw-semibold fs-16">Order Details</p>
+                                                            </div>
+                                                            <hr class="mt-2">
+
+                                                            <!-- Order row -->
+                                                            <div class="row mb-3">
+
+                                                                <div class="row mb-2">
+    
+                                                                    <div class="col-2 text-center">
+                                                                        2<span>x</span>
+                                                                    </div>
+                                                                    <div class="col-7">
+                                                                        Mickey Beef Burger
+                                                                    </div>
+                                                                    <div class="col-3 text-center">
+                                                                        JOD 4.50
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Extras row -->
+                                                                <div class="row fs-12">
+                                                                    <!-- loop here -->
+                                                                    <div class="col-2 text-center">
+                                                                    </div>
+                                                                    <div class="col-7">
+                                                                        <span>-</span> Extra Chesse
+                                                                    </div>
+                                                                    <div class="col-3 text-center">
+                                                                        <span>JOD</span> 0.50
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- end order row -->
+
+                                                            <!-- Order row -->
+                                                            <div class="row mb-3">
+
+                                                                <div class="row mb-2">
+    
+                                                                    <div class="col-2 text-center">
+                                                                        1<span>x</span>
+                                                                    </div>
+                                                                    <div class="col-7">
+                                                                        Mickey Beef Burger
+                                                                    </div>
+                                                                    <div class="col-3 text-center">
+                                                                        <span>JOD</span> 4.50
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Extras row -->
+                                                                <div class="row fs-12">
+                                                                    <!-- loop here -->
+                                                                    <div class="col-2 text-center">
+                                                                    </div>
+                                                                    <div class="col-7">
+                                                                        <span>-</span> Extra Chesse
+                                                                    </div>
+                                                                    <div class="col-3 text-center">
+                                                                        <span>JOD</span> 0.50
+                                                                    </div>
+
+                                                                    <div class="col-2 text-center">
+                                                                    </div>
+                                                                    <div class="col-7">
+                                                                        <span>-</span> Coca cola
+                                                                    </div>
+                                                                    <div class="col-3 text-center">
+                                                                        <span>JOD</span> 0.40
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- end order row -->
+
+                                                            <!-- Order row -->
+                                                            <div class="row mb-3">
+
+                                                                <div class="row mb-2">
+    
+                                                                    <div class="col-2 text-center">
+                                                                        1<span>x</span>
+                                                                    </div>
+                                                                    <div class="col-7">
+                                                                        Mickey Beef Burger
+                                                                    </div>
+                                                                    <div class="col-3 text-center">
+                                                                        <span>JOD</span> 4.50
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <!-- end order row -->
+                                                            
+                                                            <hr class="mt-2 mb-4">
+
+                                                            <div class="row mb-4 me-2">
+                                                                <div class="col-8 fw-semibold fs-16 text-end">
+                                                                    Total:
+                                                                </div>
+                                                                <div class="col-4 fs-16 text-center">
+                                                                    JOD 11.5
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade flip" id="deleteOrder" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-body p-5 text-center">
+                                                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json"
+                                                        trigger="loop" colors="primary:#25a0e2,secondary:#00bd9d"
+                                                        style="width:90px;height:90px"></lord-icon>
+                                                    <div class="mt-4 text-center">
+                                                        <h4>You are about to delete a order ?</h4>
+                                                        <p class="text-muted fs-15 mb-4">Deleting your order will remove
+                                                            all of
+                                                            your information from our database.</p>
+                                                        <div class="hstack gap-2 justify-content-center remove">
+                                                            <button
+                                                                class="btn btn-link link-primary fw-medium text-decoration-none"
+                                                                data-bs-dismiss="modal"><i
+                                                                    class="ri-close-line me-1 align-middle"></i>
+                                                                Close</button>
+                                                            <button class="btn btn-primary" id="delete-record">Yes,
+                                                                Delete It</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end modal -->
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--end col-->
+                    </div>
+                    <!--end row-->
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+            {% endblock content %}
