@@ -1,11 +1,8 @@
 {% extends 'kitchefy_dashboard/base.html' %}
 {% load static %}
 {% block content %}
-
             <div class="page-content">
                 <div class="container-fluid">
-
-
 
                     <div class="row mb-3 pb-1">
                         <div class="col-12">
@@ -66,19 +63,24 @@
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title mb-0">Dashed Line</h4>
+                                <div class="card-header align-items-center d-flex" style="height: 63px;" >
+                                    <h4 class="card-title mb-0 flex-grow-1">Dashed Line 1</h4>
+                                    <div class="flex-shrink-0">
+                                        <button type="button" onclick="updateChart_1()" class="btn btn-soft-primary btn-sm">
+                                            <i class="ri-file-list-3-line align-middle"></i> Show More
+                                        </button>
+                                    </div>
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
-                                    <div id="line_chart_dashed" data-colors='["--vz-primary", "--vz-info", "--vz-success"]' class="apex-charts" dir="ltr"></div>
+                                    <div id="line_chart_dashed_1" data-colors='["--vz-primary", "--vz-info", "--vz-success"]' class="apex-charts" dir="ltr"></div>
                                 </div><!-- end card-body -->
                             </div><!-- end card -->
                         </div>
                         <!-- end col -->
                         <div class="col-xxl-6">
                             <div class="card">
-                                <div class="card-header align-items-center d-flex">
+                                <div class="card-header align-items-center d-flex" style="height: 63px;">
                                     <h4 class="card-title mb-0 flex-grow-1">Announcements Center</h4>
                                     <div class="flex-shrink-0">
                                         <div class="dropdown card-header-dropdown">
@@ -94,8 +96,8 @@
                                         </div>
                                     </div>
                                 </div><!-- end card header -->
-                                <div class="card-body pt-0">
-                                    <div data-simplebar style="max-height: 300px;" class="mx-n3">
+                                <div class="card-body py-0">
+                                    <div data-simplebar style="max-height: 412px;" class="mx-n3">
 
 
                                         <ul class="list-group list-group-flush border-dashed">
@@ -594,18 +596,6 @@
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title mb-0">Dashed Line</h4>
-                                </div><!-- end card header -->
-
-                                <div class="card-body">
-                                    <div id="line_chart_dashed" data-colors='["--vz-primary", "--vz-info", "--vz-success"]' class="apex-charts" dir="ltr"></div>
-                                </div><!-- end card-body -->
-                            </div><!-- end card -->
-                        </div>
-                        <!-- end col -->
-                        <div class="col-xl-6">
-                            <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Dashed Line 2</h4>
                                     <div class="flex-shrink-0">
@@ -617,6 +607,23 @@
 
                                 <div class="card-body">
                                     <div id="line_chart_dashed_2" data-colors='["--vz-primary", "--vz-info", "--vz-success"]' class="apex-charts" dir="ltr"></div>
+                                </div><!-- end card-body -->
+                            </div><!-- end card -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Dashed Line 3</h4>
+                                    <div class="flex-shrink-0">
+                                        <button type="button" onclick="updateChart_3()" class="btn btn-soft-primary btn-sm">
+                                            <i class="ri-file-list-3-line align-middle"></i> Show More
+                                        </button>
+                                    </div>
+                                </div><!-- end card header -->
+
+                                <div class="card-body">
+                                    <div id="line_chart_dashed_3" data-colors='["--vz-primary", "--vz-info", "--vz-success"]' class="apex-charts" dir="ltr"></div>
                                 </div><!-- end card-body -->
                             </div><!-- end card -->
                         </div>
@@ -949,8 +956,8 @@
 
                                                             <button class="btn btn-light" type="button"
                                                                 data-bs-toggle="collapse"
-                                                                data-bs-target="#a1" aria-expanded="false"
-                                                                aria-controls="a1">
+                                                                data-bs-target="#b1" aria-expanded="false"
+                                                                aria-controls="b1">
                                                                 <i class="ri-filter-2-line"></i>
                                                             </button>
                                                         </td>
@@ -970,7 +977,7 @@
 
                                                     </tr><!-- end tr -->
 
-                                                    <tbody class="collapse bg-light m-0 p-0" id="a1">
+                                                    <tbody class="collapse bg-light m-0 p-0" id="b1">
                                                         <tr >
                                                             <td>                               
                                                             </td>
@@ -1072,8 +1079,8 @@
 
                                                             <button class="btn btn-light" type="button"
                                                                 data-bs-toggle="collapse"
-                                                                data-bs-target="#a2" aria-expanded="false"
-                                                                aria-controls="a2">
+                                                                data-bs-target="#b2" aria-expanded="false"
+                                                                aria-controls="b2">
                                                                 <i class="ri-filter-2-line"></i>
                                                             </button>
                                                         </td>
@@ -1092,7 +1099,7 @@
 
                                                     </tr><!-- end tr -->
 
-                                                    <tbody class="collapse bg-light m-0 p-0" id="a2">
+                                                    <tbody class="collapse bg-light m-0 p-0" id="b2">
                                                         <tr >
                                                             <td>                               
                                                             </td>
@@ -1193,8 +1200,8 @@
 
                                                             <button class="btn btn-light" type="button"
                                                                 data-bs-toggle="collapse"
-                                                                data-bs-target="#a3" aria-expanded="false"
-                                                                aria-controls="a3">
+                                                                data-bs-target="#b3" aria-expanded="false"
+                                                                aria-controls="b3">
                                                                 <i class="ri-filter-2-line"></i>
                                                             </button>
                                                         </td>
@@ -1212,7 +1219,7 @@
                                                         </td>
 
                                                     </tr><!-- end tr -->
-                                                    <tbody class="collapse bg-light m-0 p-0" id="a3">
+                                                    <tbody class="collapse bg-light m-0 p-0" id="b3">
                                                         <tr >
                                                             <td>                               
                                                             </td>
@@ -1313,8 +1320,8 @@
 
                                                             <button class="btn btn-light" type="button"
                                                                 data-bs-toggle="collapse"
-                                                                data-bs-target="#a4" aria-expanded="false"
-                                                                aria-controls="a4">
+                                                                data-bs-target="#b4" aria-expanded="false"
+                                                                aria-controls="b4">
                                                                 <i class="ri-filter-2-line"></i>
                                                             </button>
                                                         </td>
@@ -1332,7 +1339,7 @@
                                                         </td>
 
                                                     </tr><!-- end tr -->
-                                                    <tbody class="collapse bg-light m-0 p-0" id="a4">
+                                                    <tbody class="collapse bg-light m-0 p-0" id="b4">
                                                         <tr >
                                                             <td>                               
                                                             </td>
@@ -1443,5 +1450,7 @@
                 </div>
                 <!-- container-fluid -->
             </div>
+            <!-- this page only -->
+            <script src="{% static 'js/custom.js' %}"></script>
             <!-- End Page-content -->
             {% endblock content %}

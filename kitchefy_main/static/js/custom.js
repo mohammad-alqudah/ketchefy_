@@ -1,4 +1,3 @@
-
 function formData(e){
     PreventDefaults(e);
     
@@ -6,6 +5,6 @@ function formData(e){
 }
 
 $( document ).ready(function() {
-    document.getElementById(filterForm).addEventListener("submit", formData)
+    document.getElementById("filterForm").addEventListener("submit", formData)
 });
 
