@@ -156,38 +156,42 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" target="_blank" href="{% url 'index' %}">
+                            <a class="nav-link menu-link" target="_blank" href="{% url 'kitchefy_index' %}">
                                 <i class=" ri-home-3-line"></i> <span data-key="t-landing">index</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" target="_blank" href="{% url 'incidents_reports_hub' %}">
-                                <i class=" ri-file-list-2-line"></i> <span data-key="t-landing">incidents & reports hub</span>
+                            <a class="nav-link menu-link" target="_blank" href="{% url 'portal_finance' %}">
+                                <i class=" ri-file-list-2-line"></i> <span data-key="t-landing">finance portal</span>
                             </a>
                         </li>
 
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" target="_blank" href="{% url 'inventory_sales_forecast' %}">
-                                <i class=" ri-store-3-line"></i> <span data-key="t-landing">inventory & sales forecast</span>
+                            <a class="nav-link menu-link" target="_blank" href="{% url 'kitchefy_orders_details' %}">
+                                <i class=" ri-store-3-line"></i> <span data-key="t-landing">orders details</span>
                             </a>
                         </li>
 
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" target="_blank" href="{% url 'knowledge_center' %}">
+                            <a class="nav-link menu-link" target="_blank" href="{% url 'kitchefy_knowledge_center' %}">
                                 <i class="ri-information-line"></i> <span data-key="t-landing">knowledge center</span>
                             </a>
                         </li>
 
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" target="_blank" href="{% url 'orders_details' %}">
-                                <i class=" ri-file-search-line"></i> <span data-key="t-landing">orders details</span>
+                            <a class="nav-link menu-link" target="_blank" href="{% url 'kitchefy_inceidents_ratings_hub' %}">
+                                <i class=" ri-file-search-line"></i> <span data-key="t-landing">inceidents ratings hub'</span>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" target="_blank" href="{% url 'kitchefy_inventory_sales_forecast' %}">
+                                <i class=" ri-file-search-line"></i> <span data-key="t-landing">inventory sales forecast</span>
+                            </a>
+                        </li>
 
 
                       
@@ -788,6 +792,31 @@
 
     <!-- Dashboard init -->
     <script src="{% static 'js/pages/dashboard-crm.init.js' %}"></script>
+
+    <script src="{% static 'js/pages/apexcharts-bar.init.js' %}"></script>
+
+    
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'libs/simplebar/simplebar.min.js' %}"></script>
+    <script src="{% static 'libs/node-waves/waves.min.js' %}"></script>
+    <script src="{% static 'libs/feather-icons/feather.min.js' %}"></script>
+    <script src="{% static 'js/pages/plugins/lord-icon-2.1.0.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+
+    <!-- prismjs plugin -->
+    <script src="{% static 'libs/prismjs/prism.js' %}"></script>
+
+    <!-- leaflet plugin -->
+    <script src="{% static 'libs/leaflet/leaflet.js' %}"></script>
+
+    <!-- leaflet map.init -->
+    <script src="{% static 'js/pages/leaflet-us-states.js' %}"></script>
+    <script src="{% static 'js/pages/leaflet-map.init.js' %}"></script>
+
+    <!-- App js -->
+    <script src="{% static 'js/app.js' %}"></script>
+
 
 
     <!-- App js -->

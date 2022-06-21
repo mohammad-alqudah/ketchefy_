@@ -1,40 +1,59 @@
 {% extends 'kitchefy_dashboard/base.html' %}
 {% load static %}
 {% block content %}
-
             <div class="page-content">
                 <div class="container-fluid">
-
-
 
                     <div class="row mb-3 pb-1">
                         <div class="col-12">
                             <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                 <div class="flex-grow-1">
-                                    <p class="text-muted mb-0">Rating</p>
-                                    <h2 class="fs-32 mb-1">4.7 / 5</h2>
+                                    <!-- <p class="text-muted mb-0">Rating</p>
+                                    <h2 class="fs-32 mb-1">4.7 / 5</h2> -->
                                 </div>
 
-                                <!-- Forms Content -->
-                                <div class="btn-group me-3">
-                                    <button type="button" class="btn btn-light dropdown-toggle"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Institution
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-md p-4">
-                                        <!-- to be discused -->
-                                        <form id="filterForm">
-                                            <!-- loop here -->
-                                            <div class="mb-2">
-                                                <div class="form-check custom-checkbox">
-                                                    <input type="checkbox" class="form-check-input" id="resturant_1">
-                                                    <label class="form-check-label" for="resturant_1"> Sednaya </label>
-                                                </div>
+                             <!-- Forms Content -->
+                             <div class="btn-group me-3">
+                                <button type="button" class="btn btn-light dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Heroes Burger
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-md p-4">
+                                    <!-- to be discused -->
+                                    <form id="filterForm">
+                                        <!-- loop here -->
+                                        <div class="mb-2">
+                                            <div class="form-check custom-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="resturant_1">
+                                                <label class="form-check-label" for="resturant_1"> Sednaya </label>
                                             </div>
-                                            <button type="submit" class="btn btn-primary">Filter</button>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary">Filter</button>
+                                    </form>
                                 </div>
+                            </div>
+
+                            <div class="btn-group me-3">
+                                <button type="button" class="btn btn-light dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Steaka
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-md p-4">
+                                    <!-- to be discused -->
+                                    <form id="filterForm">
+                                        <!-- loop here -->
+                                        <div class="mb-2">
+                                            <div class="form-check custom-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="resturant_1">
+                                                <label class="form-check-label" for="resturant_1"> Sednaya </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary">Filter</button>
+                                    </form>
+                                </div>
+                            </div>
                                 <div class="mt-3 mt-lg-0">
 
                                     <form action="javascript:void(0);">
@@ -64,21 +83,21 @@
                     </div>
                     <!--end row-->
                     <div class="row">
-                        <div class="col-xl-6">
+                        <div class="col-lg-6">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title mb-0">Dashed Line</h4>
+                                <div class="card-header" style="max-height: 400px;">
+                                    <h4 class="card-title mb-0">Markers, Circles and Polygons</h4>
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
-                                    <div id="line_chart_dashed" data-colors='["--vz-primary", "--vz-info", "--vz-success"]' class="apex-charts" dir="ltr"></div>
+                                    <div id="leaflet-map-marker" class="leaflet-map"></div>
                                 </div><!-- end card-body -->
                             </div><!-- end card -->
                         </div>
                         <!-- end col -->
-                        <div class="col-xxl-6">
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex">
+                        <div class="col-xxl-6" >
+                            <div class="card" >
+                                <div class="card-header align-items-center d-flex" >
                                     <h4 class="card-title mb-0 flex-grow-1">Announcements Center</h4>
                                     <div class="flex-shrink-0">
                                         <div class="dropdown card-header-dropdown">
@@ -94,8 +113,8 @@
                                         </div>
                                     </div>
                                 </div><!-- end card header -->
-                                <div class="card-body pt-0">
-                                    <div data-simplebar style="max-height: 300px;" class="mx-n3">
+                                <div class="card-body py-0">
+                                    <div data-simplebar style="max-height: 412px;" class="mx-n3">
 
 
                                         <ul class="list-group list-group-flush border-dashed">
@@ -280,7 +299,7 @@
                             <div class="col-xl-12">
                                 <div class="card crm-widget">
                                     <div class="card-body p-0">
-                                        <div class="row row-cols-xxl-4 row-cols-md-3 row-cols-1 g-0">
+                                        <div class="row row-cols-xxl-5 row-cols-md-3 row-cols-1 g-0">
                                             <div class="col">
                                                 <div class="py-4 px-3">
                                                     <h5 class="text-muted text-uppercase fs-13">Talabat <i
@@ -313,9 +332,30 @@
                                                     </div>
                                                 </div>
                                             </div><!-- end col -->
+
+
+
+                                            <div class="col">
+                                                <div class="mt-3 mt-md-0 py-4 px-3">
+                                                    <h5 class="text-muted text-uppercase fs-13">call center <i
+                                                            class="ri-arrow-up-circle-line text-success fs-18 float-end align-middle"></i>
+                                                    </h5>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="flex-shrink-0">
+                                                            <i class="ri-exchange-dollar-line display-6 text-muted"></i>
+                                                        </div>
+                                                        <div class="flex-grow-1 ms-3">
+                                                            <h2 class="mb-0">$<span class="counter-value"
+                                                                    data-target="489.4">0</span>k</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col -->
+
+                                            
                                             <div class="col">
                                                 <div class="mt-4 mt-md-0 py-4 px-3">
-                                                    <h5 class="text-muted text-uppercase fs-13">CS MENA <i
+                                                    <h5 class="text-muted text-uppercase fs-13">webwite sales  <i
                                                             class="ri-arrow-down-circle-line text-danger fs-18 float-end align-middle"></i>
                                                     </h5>
                                                     <div class="d-flex align-items-center">
@@ -332,7 +372,7 @@
     
                                             <div class="col">
                                                 <div class="mt-3 mt-lg-0 py-4 px-3">
-                                                    <h5 class="text-muted text-uppercase fs-13">ask Pepper<i
+                                                    <h5 class="text-muted text-uppercase fs-13">test test<i
                                                             class="ri-arrow-down-circle-line text-danger fs-18 float-end align-middle"></i>
                                                     </h5>
                                                     <div class="d-flex align-items-center">
@@ -361,7 +401,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted mb-0">Total Sales</p>
+                                            <p class="text-uppercase fw-medium text-muted mb-0">TOTAL SALES tax</p>
                                         </div>
                                         <div class="flex-shrink-0">
                                             <h5 class="text-success fs-14 mb-0">
@@ -390,7 +430,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted mb-0">Total Sales Tax</p>
+                                            <p class="text-uppercase fw-medium text-muted mb-0">total fulfilment partner profit</p>
                                         </div>
                                         <div class="flex-shrink-0">
                                             <h5 class="text-success fs-14 mb-0">
@@ -419,7 +459,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted mb-0">Total Profit</p>
+                                            <p class="text-uppercase fw-medium text-muted mb-0">total kitchefy's profit </p>
                                         </div>
                                         <div class="flex-shrink-0">
                                             <h5 class="text-success fs-14 mb-0">
@@ -594,20 +634,8 @@
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title mb-0">Dashed Line</h4>
-                                </div><!-- end card header -->
-
-                                <div class="card-body">
-                                    <div id="line_chart_dashed" data-colors='["--vz-primary", "--vz-info", "--vz-success"]' class="apex-charts" dir="ltr"></div>
-                                </div><!-- end card-body -->
-                            </div><!-- end card -->
-                        </div>
-                        <!-- end col -->
-                        <div class="col-xl-6">
-                            <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Dashed Line 2</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">totla sales</h4>
                                     <div class="flex-shrink-0">
                                         <button type="button" onclick="updateChart_2()" class="btn btn-soft-primary btn-sm">
                                             <i class="ri-file-list-3-line align-middle"></i> Show More
@@ -617,6 +645,23 @@
 
                                 <div class="card-body">
                                     <div id="line_chart_dashed_2" data-colors='["--vz-primary", "--vz-info", "--vz-success"]' class="apex-charts" dir="ltr"></div>
+                                </div><!-- end card-body -->
+                            </div><!-- end card -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">total orders</h4>
+                                    <div class="flex-shrink-0">
+                                        <button type="button" onclick="updateChart_3()" class="btn btn-soft-primary btn-sm">
+                                            <i class="ri-file-list-3-line align-middle"></i> Show More
+                                        </button>
+                                    </div>
+                                </div><!-- end card header -->
+
+                                <div class="card-body">
+                                    <div id="line_chart_dashed_3" data-colors='["--vz-primary", "--vz-info", "--vz-success"]' class="apex-charts" dir="ltr"></div>
                                 </div><!-- end card-body -->
                             </div><!-- end card -->
                         </div>
@@ -681,12 +726,12 @@
 
                                                         <td>
                                                             <div class="d-flex align-items-center">
-                                                                <div class="flex-grow-1">Alex Smith</div>
+                                                                <div class="flex-grow-1">bay 1 get 1 free</div>
                                                             </div>
                                                         </td>
-                                                        <td>Valid</td>
+                                                        <td>01 Jan, 2022 to 31 Jan, 2022</td>
                                                         <td>
-                                                            <span class="text-success">C4M4</span>
+                                                            <span class="text-success">Talabat</span>
                                                         </td>
                                                         <td>
                                                             <span class="badge badge-soft-success">Paid</span>
@@ -739,12 +784,12 @@
                                                         </td>
                                                         <td>
                                                             <div class="d-flex align-items-center">
-                                                                <div class="flex-grow-1">Alex Smith</div>
+                                                                <div class="flex-grow-1">50% off</div>
                                                             </div>
                                                         </td>
-                                                        <td>Valid</td>
+                                                        <td>01 Jan, 2022 to 31 Jan, 2022</td>
                                                         <td>
-                                                            <span class="text-success">C4M4</span>
+                                                            <span class="text-success">Careem</span>
                                                         </td>
                                                         <td>
                                                             <span class="badge badge-soft-success">Paid</span>
@@ -796,12 +841,12 @@
                                                         </td>
                                                         <td>
                                                             <div class="d-flex align-items-center">
-                                                                <div class="flex-grow-1">Alex Smith</div>
+                                                                <div class="flex-grow-1">bay 2 get 1 free</div>
                                                             </div>
                                                         </td>
-                                                        <td>Valid</td>
+                                                        <td>01 Jan, 2022 to 31 Jan, 2022</td>
                                                         <td>
-                                                            <span class="text-success">C4M4</span>
+                                                            <span class="text-success">csmena</span>
                                                         </td>
                                                         <td>
                                                             <span class="badge badge-soft-success">Paid</span>
@@ -852,12 +897,12 @@
                                                         </td>
                                                         <td>
                                                             <div class="d-flex align-items-center">
-                                                                <div class="flex-grow-1">Alex Smith</div>
+                                                                <div class="flex-grow-1">heroes Burger</div>
                                                             </div>
                                                         </td>
-                                                        <td>Valid</td>
+                                                        <td>khalda</td>
                                                         <td>
-                                                            <span class="text-success">C4M4</span>
+                                                            <span class="text-success">Amman</span>
                                                         </td>
                                                         <td>
                                                             <span class="badge badge-soft-success">Paid</span>
@@ -949,20 +994,20 @@
 
                                                             <button class="btn btn-light" type="button"
                                                                 data-bs-toggle="collapse"
-                                                                data-bs-target="#a1" aria-expanded="false"
-                                                                aria-controls="a1">
+                                                                data-bs-target="#b1" aria-expanded="false"
+                                                                aria-controls="b1">
                                                                 <i class="ri-filter-2-line"></i>
                                                             </button>
                                                         </td>
 
                                                         <td>
                                                             <div class="d-flex align-items-center">
-                                                                <div class="flex-grow-1">Alex Smith</div>
+                                                                <div class="flex-grow-1">heroes Burger</div>
                                                             </div>
                                                         </td>
-                                                        <td>Valid</td>
+                                                        <td>aljandawel</td>
                                                         <td>
-                                                            <span class="text-success">C4M4</span>
+                                                            <span class="text-success">Amman</span>
                                                         </td>
                                                         <td>
                                                             <span class="badge badge-soft-success">Paid</span>
@@ -970,7 +1015,7 @@
 
                                                     </tr><!-- end tr -->
 
-                                                    <tbody class="collapse bg-light m-0 p-0" id="a1">
+                                                    <tbody class="collapse bg-light m-0 p-0" id="b1">
                                                         <tr >
                                                             <td>                               
                                                             </td>
@@ -1072,19 +1117,19 @@
 
                                                             <button class="btn btn-light" type="button"
                                                                 data-bs-toggle="collapse"
-                                                                data-bs-target="#a2" aria-expanded="false"
-                                                                aria-controls="a2">
+                                                                data-bs-target="#b2" aria-expanded="false"
+                                                                aria-controls="b2">
                                                                 <i class="ri-filter-2-line"></i>
                                                             </button>
                                                         </td>
                                                         <td>
                                                             <div class="d-flex align-items-center">
-                                                                <div class="flex-grow-1">Alex Smith</div>
+                                                                <div class="flex-grow-1">heroes Burger</div>
                                                             </div>
                                                         </td>
-                                                        <td>Valid</td>
+                                                        <td>irbid valage </td>
                                                         <td>
-                                                            <span class="text-success">C4M4</span>
+                                                            <span class="text-success">Irbid</span>
                                                         </td>
                                                         <td>
                                                             <span class="badge badge-soft-success">Paid</span>
@@ -1092,7 +1137,7 @@
 
                                                     </tr><!-- end tr -->
 
-                                                    <tbody class="collapse bg-light m-0 p-0" id="a2">
+                                                    <tbody class="collapse bg-light m-0 p-0" id="b2">
                                                         <tr >
                                                             <td>                               
                                                             </td>
@@ -1193,26 +1238,26 @@
 
                                                             <button class="btn btn-light" type="button"
                                                                 data-bs-toggle="collapse"
-                                                                data-bs-target="#a3" aria-expanded="false"
-                                                                aria-controls="a3">
+                                                                data-bs-target="#b3" aria-expanded="false"
+                                                                aria-controls="b3">
                                                                 <i class="ri-filter-2-line"></i>
                                                             </button>
                                                         </td>
                                                         <td>
                                                             <div class="d-flex align-items-center">
-                                                                <div class="flex-grow-1">Alex Smith</div>
+                                                                <div class="flex-grow-1">heroes Burger</div>
                                                             </div>
                                                         </td>
-                                                        <td>Valid</td>
+                                                        <td>khalda</td>
                                                         <td>
-                                                            <span class="text-success">C4M4</span>
+                                                            <span class="text-success">Amman</span>
                                                         </td>
                                                         <td>
                                                             <span class="badge badge-soft-success">Paid</span>
                                                         </td>
 
                                                     </tr><!-- end tr -->
-                                                    <tbody class="collapse bg-light m-0 p-0" id="a3">
+                                                    <tbody class="collapse bg-light m-0 p-0" id="b3">
                                                         <tr >
                                                             <td>                               
                                                             </td>
@@ -1313,8 +1358,8 @@
 
                                                             <button class="btn btn-light" type="button"
                                                                 data-bs-toggle="collapse"
-                                                                data-bs-target="#a4" aria-expanded="false"
-                                                                aria-controls="a4">
+                                                                data-bs-target="#b4" aria-expanded="false"
+                                                                aria-controls="b4">
                                                                 <i class="ri-filter-2-line"></i>
                                                             </button>
                                                         </td>
@@ -1332,7 +1377,7 @@
                                                         </td>
 
                                                     </tr><!-- end tr -->
-                                                    <tbody class="collapse bg-light m-0 p-0" id="a4">
+                                                    <tbody class="collapse bg-light m-0 p-0" id="b4">
                                                         <tr >
                                                             <td>                               
                                                             </td>
@@ -1443,5 +1488,10 @@
                 </div>
                 <!-- container-fluid -->
             </div>
+            <!-- this page only -->
+            <script src="{% static 'js/custom.js' %}"></script>
+
+    
+
             <!-- End Page-content -->
             {% endblock content %}

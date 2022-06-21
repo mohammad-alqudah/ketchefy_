@@ -18,7 +18,7 @@ from django.urls import path , include
 
 urlpatterns = [
     path('', include('fulfillment_dashboard.urls')),
-    path('kitchey/', include('kitchefy_dashboard.urls')),
+    path('kitchefy/', include('kitchefy_dashboard.urls')),
 
     path('admin/', admin.site.urls),
     
