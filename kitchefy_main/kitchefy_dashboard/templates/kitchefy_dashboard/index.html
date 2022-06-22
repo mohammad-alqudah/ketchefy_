@@ -1,6 +1,12 @@
 {% extends 'kitchefy_dashboard/base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+crossorigin=""></script>
             <div class="page-content">
                 <div class="container-fluid">
 
@@ -83,21 +89,30 @@
                     </div>
                     <!--end row-->
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-xxl-6">
                             <div class="card">
-                                <div class="card-header" style="max-height: 400px;">
-                                    <h4 class="card-title mb-0">Markers, Circles and Polygons</h4>
-                                </div><!-- end card header -->
+                                
+                                        <div class="card-header align-items-center d-flex" style="height: 63px;">
+                                            <h4 class="card-title mb-0 flex-grow-1">Markers, Circles and Polygons</h4>
 
-                                <div class="card-body">
-                                    <div id="leaflet-map-marker" class="leaflet-map"></div>
-                                </div><!-- end card-body -->
+                                            <div class="flex-shrink-0">
+                                                <button type="button" onclick="drawOnMap()" class="btn btn-soft-primary btn-sm">
+                                                    <i class="ri-file-list-3-line align-middle"></i> Draw On Map
+                                                </button>
+                                            </div>
+                                        </div><!-- end card header -->
+        
+                                        <div class="card-body position-relative w-100">
+                                            <div id="map" class="col-xxl-12" style="height: 412px;"></div>
+                                        </div><!-- end card-body -->
+
+                               
                             </div><!-- end card -->
                         </div>
                         <!-- end col -->
                         <div class="col-xxl-6" >
                             <div class="card" >
-                                <div class="card-header align-items-center d-flex" >
+                                <div class="card-header align-items-center d-flex" style="height: 63px;">
                                     <h4 class="card-title mb-0 flex-grow-1">Announcements Center</h4>
                                     <div class="flex-shrink-0">
                                         <div class="dropdown card-header-dropdown">
@@ -114,7 +129,7 @@
                                     </div>
                                 </div><!-- end card header -->
                                 <div class="card-body py-0">
-                                    <div data-simplebar style="max-height: 412px;" class="mx-n3">
+                                    <div data-simplebar style="max-height: 444px;" class="mx-n3">
 
 
                                         <ul class="list-group list-group-flush border-dashed">
@@ -1491,7 +1506,52 @@
             <!-- this page only -->
             <script src="{% static 'js/custom.js' %}"></script>
 
-    
+            <script>
+                var map = L.map('map').setView([51.505, -0.09], 13);
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+                }).addTo(map);
+
+                var once = false;
+                function drawOnMap(){
+                    if (!once) {
+                        
+                        var marker = L.marker([51.5, -0.09]).addTo(map);
+                        var marker2 = L.marker([51.5, -0.091]).addTo(map);
+                        var marker3 = L.marker([51.5, -0.092]).addTo(map);
+                        var marker4 = L.marker([51.5, -0.093]).addTo(map);
+
+                        var circle = L.circle([51.508, -0.11], {
+                            color: 'red',
+                            fillColor: '#f03',
+                            fillOpacity: 0.5,
+                            radius: 500
+                        }).addTo(map);
+
+                        var circle2 = L.circle([51.508, -0.112], {
+                            color: 'red',
+                            fillColor: '#f03',
+                            fillOpacity: 0.5,
+                            radius: 400
+                        }).addTo(map);
+
+                        var circle3 = L.circle([51.508, -0.114], {
+                            color: 'red',
+                            fillColor: '#f03',
+                            fillOpacity: 0.5,
+                            radius: 700
+                        }).addTo(map);
+
+
+
+
+                        once= true;
+                    }
+
+                }
+            </script>
 
             <!-- End Page-content -->
             {% endblock content %}
